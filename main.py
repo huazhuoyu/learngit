@@ -102,7 +102,7 @@ class HongBao(PageLayout):
         self.page=1
         print  'filename :',self.filename
 
-    def remove_line(self,suanfa='a'):
+    def remove_line(self,mode='a'):
 
         im2 = PIL.Image.open(self.filename)
         im3 = im2.copy()
@@ -148,7 +148,7 @@ class HongBao(PageLayout):
                     current_y=y
                     black_in_line=True
                 for x2 in range(0, w2):
-                    if suanfa=='a':
+                    if mode=='a':
                         im3_pix[x2, y] = im2_pix[x2, current_y-2]
                     else:
                         im3_pix[x2, y] = im2_pix[x2, y - up_down]
@@ -156,7 +156,7 @@ class HongBao(PageLayout):
                 
                 if black_in_line==True:
                     black_in_line=False
-                    if suanfa=='a':
+                    if mode=='a':
                         for x2 in range(0, w2):
                             im3_pix[x2, y] = im2_pix[x2, current_y  - up_down]
                 
